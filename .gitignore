@@ -1,0 +1,18 @@
+# npm
+.env
+node_modules
+package-lock.json
+*.log
+*.gz
+
+# Coveralls
+.nyc_output
+coverage
+npm-debug.log*
+
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
