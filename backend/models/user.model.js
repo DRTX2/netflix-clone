@@ -1,15 +1,20 @@
 import mongoose from "mongoose";
 
-const userSchema=mongoose.Schema({
+const {Schema}=mongoose;
+
+const userSchema=Schema({
     username:{
         type:String,
         required:true,
-        unique:true
+        unique:true,
+        trim:true
     },
     email:{
         type:String,
         required:true,
-        unique:true
+        unique:true,
+        trim:true,
+        lowercase:true, //every cahracter will be in lower case
     },
     password:{
         type:String,
@@ -20,9 +25,10 @@ const userSchema=mongoose.Schema({
         default:""
     },
     searchHistory:{
-        type:Array,
+        type: [String],
         default: []
-    }
-});
+    },
+    
+}, {timestamps:true});// to create automatically the createdAt and updatedAt properties
 
-const User=mongoose.model("User",userSchema);
+export const User=mongoose.model("User",userSchema);
