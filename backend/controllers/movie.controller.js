@@ -27,7 +27,7 @@ export async function getMovieTrailers(req, res) {
     res.json({ success: true, content: data.results });
   } catch (error) {
     if (error.message.includes("404")) return res.status(404).send(null);
-    
+
     return res.status(500).json({
       success: false,
       message: "Internal Server Error",
@@ -35,10 +35,10 @@ export async function getMovieTrailers(req, res) {
   }
 }
 
-export const getMovieDetails = async (req, res) => {
+export async function getMovieDetails(req, res) {
   const { id } = req.params;
   try {
-    const data = await fetchFromTMDB(`movie/${id}?language=en-US`);
+    const data = await fetchFromTMDB(`movie/${id}`);
     res.json({ success: true, content: data });
   } catch (error) {
     if (error.message.includes("404")) return res.status(404).send(null);
@@ -48,4 +48,32 @@ export const getMovieDetails = async (req, res) => {
       message: "Internal Server Error",
     });
   }
-};
+}
+
+export async function getSimilarMovies(req, res) {
+  const { id } = req.params;
+  try {
+    const data = await fetchFromTMDB(`movie/${id}/similar`);
+    res.json({success:true,content:data.results});
+  } catch (error) {
+    if (error.message.includes("404")) return res.status(404).send(null);
+
+    return res
+      .status(500)
+      .json({ success: false, message: "Internal Server Error" });
+  }
+}
+
+export async function getMoviesByCategory(req,res){
+  const {category}=req.body;
+  try {
+    const data = await fetchFromTMDB(`movie/${category}`);
+    res.status(200).json({success:true, content:data.results})
+  } catch (error) {
+    if (error.message.includes("404")) return res.status(404).send(null);
+
+    return res
+      .status(500)
+      .json({ success: false, message: "Internal Server Error" });
+  }
+}
