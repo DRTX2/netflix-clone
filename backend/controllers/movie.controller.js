@@ -44,5 +44,5 @@ export const getSimilarMovies = (req, res) => {
 };
 
 export const getMoviesByCategory = (req, res) => {
-  handleRequest(res, `movie/${req.body.category}`);
+  handleRequest(res, `movie/${req.params.category}`);
 };
