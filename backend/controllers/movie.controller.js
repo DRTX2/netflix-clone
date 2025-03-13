@@ -1,6 +1,6 @@
 import { fetchFromTMDB } from "../services/tmdb.service.js";
 
-const handleRequest = async (res, endpoint, successStatus = 200) => {
+export const handleRequest = async (res, endpoint, successStatus = 200) => {
   try {
     const data = await fetchFromTMDB(endpoint);
     if (!data || (data.results && data.results.length === 0)) {
