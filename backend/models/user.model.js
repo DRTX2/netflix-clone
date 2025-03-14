@@ -24,10 +24,18 @@ const userSchema=Schema({
         type:String,
         default:""
     },
-    searchHistory:{
-        type: [String],
+    searchHistory: {
+        type: [
+          {
+            id: Number,
+            image: String,
+            title: String,
+            searchType: String,
+            createdAt: Date,
+          }
+        ],
         default: []
-    },
+      }
     
 }, {timestamps:true});// to create automatically the createdAt and updatedAt properties
 
