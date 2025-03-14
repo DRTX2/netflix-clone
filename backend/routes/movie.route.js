@@ -6,10 +6,10 @@ import {
   getSimilarMovies,
   getTrendingMovies,
 } from "../controllers/movie.controller.js";
-export const movieRouter = express.Router();
+export const movieRoutes = express.Router();
 
-movieRouter.get("/trending", getTrendingMovies);
-movieRouter.get("/:id/trailers", getMovieTrailers);
-movieRouter.get("/:id/details", getMovieDetails);
-movieRouter.get("/:id/similar", getSimilarMovies);
-movieRouter.get("/:category", getMoviesByCategory);
+movieRoutes.get("/trending", getTrendingMovies);
+movieRoutes.get("/:id/trailers", getMovieTrailers);
+movieRoutes.get("/:id/details", getMovieDetails);
+movieRoutes.get("/:id/similar", getSimilarMovies);
+movieRoutes.get("/:category", getMoviesByCategory);

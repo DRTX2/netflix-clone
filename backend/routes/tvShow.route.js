@@ -7,10 +7,10 @@ import {
   getTvShowTrailers,
 } from "../controllers/tvShow.controller.js";
 
-export const tvShowRouter = express.Router();
+export const tvShowRoutes = express.Router();
 
-tvShowRouter.get("/trending", getTrendingTvShow);
-tvShowRouter.get("/:id/trailers", getTvShowTrailers);
-tvShowRouter.get("/:id/details", getTvShowDetails);
-tvShowRouter.get("/:id/similar", getSimilarTvShow);
-tvShowRouter.get("/:category", getTvShowByCategory);
+tvShowRoutes.get("/trending", getTrendingTvShow);
+tvShowRoutes.get("/:id/trailers", getTvShowTrailers);
+tvShowRoutes.get("/:id/details", getTvShowDetails);
+tvShowRoutes.get("/:id/similar", getSimilarTvShow);
+tvShowRoutes.get("/:category", getTvShowByCategory);
